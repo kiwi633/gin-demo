@@ -26,10 +26,11 @@ func router01() http.Handler {
 		}
 	})
 	g.GET("/demo/v1/get-name", func(c *gin.Context) {
-		zlog.WithContext(c).Info("测试日志")
-		zlog.WithContext(c).Info("测试日志")
-		zlog.WithContext(c).Info("测试日志")
-		handler.FindPerson(c)
+		zlog.WithContext(c)
+		zlog.Logger.Info("========================测试日志1==============")
+		zlog.Logger.Info("========================测试日志2==============")
+		zlog.Logger.Info("========================测试日志3==============")
+		handler.Loggeraaaaa()
 	})
 	g.POST("/get-person", func(c *gin.Context) {
 		zlog.WithContext(c).Info("get-person1测试日志")

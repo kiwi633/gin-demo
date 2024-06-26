@@ -12,6 +12,16 @@ func FindPerson(c *gin.Context) {
 	ccc(c)
 }
 
+func Loggeraaaaa() {
+	zlog.Logger.Info("Loggeraaaaa")
+	time.Sleep(5000)
+	Loggerbbbbb()
+}
+
+func Loggerbbbbb() {
+	zlog.Logger.Info("Loggerbbbbb")
+}
+
 func ccc(c *gin.Context) {
 	zlog.WithContext(c).Info("FindPerson ccccc")
 	ddd(c)
