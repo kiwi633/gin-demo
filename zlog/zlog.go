@@ -65,7 +65,6 @@ func WithContext(ctx *gin.Context) *zap.Logger {
 	l, _ := ctx.Get(strconv.Itoa(loggerKey))
 	ctxLogger, ok := l.(*zap.Logger)
 	if ok {
-		Logger = ctxLogger
 		return ctxLogger
 	}
 	return Logger
