@@ -32,6 +32,7 @@ func Router01(g *gin.Engine) http.Handler {
 	g.GET("/hello", func(c *gin.Context) {
 		t, err := template.ParseFiles("./html/hello.html")
 		zlog.WithContext(c).Info("hello template...")
+		zlog.WithContext(c).Error("error=============")
 		if err != nil {
 			zlog.Logger.Error("加载静态文件失败！")
 			return
