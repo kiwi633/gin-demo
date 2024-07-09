@@ -37,7 +37,10 @@ func Router01(g *gin.Engine) http.Handler {
 			zlog.Logger.Error("加载静态文件失败！")
 			return
 		}
-		p := Person{Name: "suntong", IdNo: "111111111111"}
+		pro := Project{
+			Name: "suntong",
+		}
+		p := Person{Name: "suntong", IdNo: "111111111111", Project: pro}
 		t.Execute(c.Writer, p)
 	})
 	g.POST("/get-person", func(c *gin.Context) {
@@ -51,9 +54,14 @@ func Router01(g *gin.Engine) http.Handler {
 }
 
 type Person struct {
-	Name    string `json:"name"`
-	IdNo    string `json:"idNo"`
-	TraceId string `json:"traceId"`
+	Name    string  `json:"name"`
+	IdNo    string  `json:"idNo"`
+	TraceId string  `json:"traceId"`
+	Project Project `json:"project"`
+}
+
+type Project struct {
+	Name string `json:"name"`
 }
 
 func measureTime(funcName string) func() {
